@@ -1,0 +1,7 @@
+projects:
+  github-api-graphql:
+    schemaPath: schema.graphql
+    includes: ["**/*.graphql", "**/.js"]
+    extensions:
+      endpoints:
+        dev: 'http://localhost:4000'

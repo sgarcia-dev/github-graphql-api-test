@@ -1,0 +1,22 @@
+type Query {
+  user(username: ID!): User
+  users(usernames: [ID!]): [User]!
+  userRepos(username: ID!): [Repository]!
+}
+
+type User {
+  userId: Int
+  username: String,
+  name: String
+  company: String,
+  avatarUrl: String
+  profileUrl: String
+  publicRepos: Int
+  followers: Int,
+  following: Int
+}
+
+type Repository {
+  name: String
+  private: Boolean
+}

@@ -1,0 +1,21 @@
+type Query {
+  user(id: ID!): User
+}
+
+type User {
+  userId: String
+  name: String
+  email: String
+  followers: Int
+  avatarUrl: String
+  profileUrl: String
+}
+
+type Random {
+  userId: String
+  name: String
+  email: String
+  followers: Int
+  avatarUrl: String
+  profileUrl: String
+}
