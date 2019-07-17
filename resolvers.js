@@ -15,7 +15,8 @@ module.exports = {
     users: async (parent, args, context, info) => {
       const { usernames } = args;
       const { dataSources } = context;
-      return await dataSources.customUserAPI.getManyByUsername({ usernames });
+      const { maxAge } = info.cacheControl.cacheHint;
+      return await dataSources.customUserAPI.getManyByUsername({ usernames, maxAge });
     },
     // No Datasource
     userRepos: async (parent, args, context, info) => {

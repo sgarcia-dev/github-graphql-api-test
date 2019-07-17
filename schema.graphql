@@ -4,7 +4,7 @@ type Query {
   userRepos(username: ID!): [Repository]!
 }
 
-type User {
+type User @cacheControl(maxAge: 60) {
   userId: Int
   username: String,
   name: String
@@ -16,7 +16,7 @@ type User {
   following: Int
 }
 
-type Repository {
+type Repository @cacheControl(maxAge: 30) {
   name: String
   private: Boolean
 }
