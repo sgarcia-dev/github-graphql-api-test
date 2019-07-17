@@ -12,8 +12,7 @@ Also, it supports Redis caching out of the box as this makes it easy to troubles
 
 ### TODOs
 
-* Figure out why the [Cache Hints](https://www.apollographql.com/docs/apollo-server/features/caching/) aren't working in the Resolvers or Schema to set cache expiry date. ([Possible solution?](https://stackoverflow.com/questions/53358443/apollo-server-confusion-about-cache-datasource-options))
-* Add a fourth scenario that shows how to implement manual caching on a custom Datasource.
+* Figure out why the [Cache Hints](https://www.apollographql.com/docs/apollo-server/features/caching/) aren't working for the `RESTDatasource` to set cache expiry date on Redis. ([Possible solution?](https://stackoverflow.com/questions/53358443/apollo-server-confusion-about-cache-datasource-options))
 
 ### Pre-requisites
 
