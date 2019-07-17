@@ -5,7 +5,8 @@ module.exports = {
     user: async (parent, args, context, info) => {
       const { username } = args;
       const { dataSources } = context;
-      return await dataSources.userAPI.getUserByUsername({ username });
+      // return await dataSources.userAPI.getUserByUsername({ username });  // Rest DataSource
+      return await dataSources.customUserAPI.getUserByUsername({ username }); // Custom DataSource
     },
     users: async (parent, args, context, info) => {
       const { usernames } = args;

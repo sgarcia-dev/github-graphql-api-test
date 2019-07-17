@@ -4,6 +4,7 @@ const fs = require('fs');
 const resolvers = require('./resolvers');
 const UserAPI = require('./data/user');
 const RepoAPI = require('./data/repository');
+const CustomUserAPI = require('./data/user.custom');
 
 const schema = fs.readFileSync('./schema.graphql');
 const typeDefs = gql`${schema}`;
@@ -19,7 +20,8 @@ const server = new ApolloServer({
   cache,
   dataSources: () => ({
     userAPI: new UserAPI(),
-    repoAPI: new RepoAPI()
+    repoAPI: new RepoAPI(),
+    customUserAPI: new CustomUserAPI()
   })
 });
 
