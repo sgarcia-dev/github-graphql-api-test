@@ -1,5 +1,6 @@
 const axios = require('axios');
 const { DataSource } = require('apollo-datasource');
+const { reduceUser } = require('../reducers');
 
 class CustomUserAPI extends DataSource {
   constructor() {
@@ -10,23 +11,15 @@ class CustomUserAPI extends DataSource {
     this.context = config.context;
   }
 
-  async getUserByUsername({ username }) {
+  async getByUsername({ username }) {
     const { data: user } = await axios.get(`https://api.github.com/users/${username}`);
-    return this.reduceUser(user);
+    return reduceUser(user);
   }
 
-  reduceUser(user) {
-    return {
-      userId: user.id,
-      username: user.login,
-      name: user.name,
-      company: user.company,
-      avatarUrl: user.avatar_url,
-      profileUrl: user.html_url,
-      publicRepos: user.public_repos,
-      followers: user.followers,
-      following: user.following
-    }
+  async getManyByUsername({ usernames }) {
+    return await Promise.all(
+      usernames.map(username => this.getByUsername({ username }))
+    );
   }
 }
 
